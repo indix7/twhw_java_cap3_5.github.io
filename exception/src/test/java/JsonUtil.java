@@ -1,5 +1,4 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class JsonUtil {
 
@@ -8,8 +7,13 @@ public class JsonUtil {
   private static final ObjectMapper objectMapper = new ObjectMapper();
 
   public static String convertToJson(Object object) {
-    //TODO: change the code to pass the test
+    try {
+      String str = objectMapper.writeValueAsString(object);
+      return str;
+    } catch (Exception e) {
+      System.out.println(e);
+    }
+    return "";
 
-    throw new NotImplementedException();
   }
 }
