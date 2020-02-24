@@ -8,12 +8,11 @@ public class JsonUtil {
 
   public static String convertToJson(Object object) {
     try {
-      String str = objectMapper.writeValueAsString(object);
-      return str;
-    } catch (Exception e) {
-      System.out.println(e);
+      return objectMapper.writeValueAsString(object);
+    } catch (Exception exception) {
+      System.out.println("出现异常 ： "+exception);
     }
-    return "";
+    return "读取失败";
 
   }
 }
